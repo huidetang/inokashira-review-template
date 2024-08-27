@@ -1,0 +1,133 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build books.
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # reviewdog-github-check:
+  #   name: reviewdog (github-check)
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #       #reviewdogのアクション
+  #     - uses: reviewdog/action-setup@v1
+  #       with:
+  #         reviewdog_version: latest
+
+  #       #textlintを動かすためのnodeアクション
+  #     - uses: actions/setup-node@v3
+
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
+
+  #     - name: cache-node-modules
+  #       #stepsが失敗(文章の乱れ)した場合でもcacheを取得するようにする
+  #       uses: pat-s/always-upload-cache@v2.1.3
+  #       env:
+  #         cache-name: cache-node-modules
+  #       with:
+  #         path: ~/.npm
+  #         key: node-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           node-
+
+  #     - name: Install textlint
+  #       run:  'npm install --save-dev textlint textlint-rule-preset-smarthr textlint-rule-prh textlint-plugin-review'
+      
+  #     - name: Install dependent module
+  #       run: npm install
+
+  #     - name: Execute textlint
+  #       env:
+  #         REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       run: |
+  #         npx textlint -f checkstyle chapter/*.re wiki/*.md README.md \
+  #         | reviewdog -f=checkstyle -name="textlint" -diff="git diff ${{ github.event.pull_request.base.ref }}" -reporter=github-pr-review -level="error"
+
+  epub:
+    # needs: reviewdog-github-check
+    name: Make EPUB
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/huideyeren/review-docker:main
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Get current date and time
+        env: 
+          TZ: "Asia/Tokyo" # タイムゾーンを指定
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y年%m月%d日_%H時%M分')"
+             # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
+      - name: Show date and time
+        run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
+      - name: Install Node Package.
+        run: pnpm install
+      - name: Compile SCSS.
+        run: pnpm run style
+      - name: Install gems.
+        run: bundle install
+      - name: Build EPUB.
+        run: REVIEW_CONFIG_FILE=config-epub.yml bundle exec rake epub
+      - name: Upload artifact.
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ format('井の頭文芸部テンプレート_{0}_{1}', 'epub', steps.date.outputs.date) }}
+          path: book-epub.epub
+
+  vivliostyle-dockerfile:
+    # needs: reviewdog-github-check
+    name: Make PDF at Vivliostyle Renew
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/huideyeren/vivliostyle-review-docker:latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Get current date and time
+        env: 
+          TZ: "Asia/Tokyo" # タイムゾーンを指定
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y年%m月%d日_%H時%M分')"
+              # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
+      - name: Show date and time
+        run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
+      - name: Install Node Package.
+        run: pnpm install
+      - name: Compile SCSS.
+        run: pnpm run style
+      - name: Install gems.
+        run: bundle install
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Grayscaling images.
+        run: | 
+          python -m pip install --upgrade pip 
+          python -m pip install anshitsu
+          pwd | python grayscaling.py >> .grayscaling.log
+      - name: Show .grayscaling.log
+        run: cat .grayscaling.log
+      - name: Build PDF.
+        run: REVIEW_CONFIG_FILE=config-vivliostyle.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+      - name: Upload artifact.
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ format('井の頭文芸部テンプレート_{0}_{1}', 'vivliostyle-docker', steps.date.outputs.date) }}
+          path: book.pdf

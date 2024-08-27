@@ -1,0 +1,1 @@
+FROM ghcr.io/huideyeren/vivliostyle-review-docker:latest
