@@ -16,8 +16,8 @@ on:
   workflow_dispatch:
 
 env:
-  SIZE: a5 # 対応はa4, a5, a6, b5, shinsho
-  MUKI: yoko # tateが縦組み、yokoが横組み（※ shinshoはyoko非対応）
+  SIZE: a6 # 対応はa4, a5, a6, b5, shinsho
+  MUKI: tate # tateが縦組み、yokoが横組み（※ yokoは要修正）
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
