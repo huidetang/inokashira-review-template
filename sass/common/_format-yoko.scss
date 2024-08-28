@@ -1,6 +1,11 @@
 @charset "UTF-8";
 
 html {
+  /* 組み方向 */
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
+
   orphans: 1;
   widows: 1;
 }
@@ -35,6 +40,8 @@ html {
     vertical-align: top;
     margin-left: 3.75pt;
     margin-top: 6mm;
+    -webkit-writing-mode: horizontal-tb;
+    -epub-writing-mode:   horizontal-tb;
     writing-mode: horizontal-tb;
   }
 
@@ -44,6 +51,8 @@ html {
     margin-right: -19mm !important;
     padding: 2px;
     white-space: pre;
+    -webkit-writing-mode: horizontal-tb;
+    -epub-writing-mode:   horizontal-tb;
     writing-mode: horizontal-tb;
     content: counter(page);
   }
@@ -94,6 +103,8 @@ html {
     vertical-align: top;
     margin-right: 3.75pt;
     margin-top: 6mm;
+    -webkit-writing-mode: horizontal-tb;
+    -epub-writing-mode:   horizontal-tb;
     writing-mode: horizontal-tb;
   }
 
@@ -103,6 +114,8 @@ html {
     margin-left: -19mm !important;
     padding: 2px;
     white-space: pre;
+    -webkit-writing-mode: horizontal-tb;
+    -epub-writing-mode:   horizontal-tb;
     writing-mode: horizontal-tb;
     content: counter(page);
   }
@@ -201,6 +214,35 @@ html {
   margin-bottom: $chi;
   margin-left: $nodo;
   margin-right: $nodo;
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
+
+  div.colophon-content {
+    margin-top: 50%;
+    h1, h2 {
+      margin-left: 0;
+    }
+  }
+
+  dl {
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    dt {
+      width: 20%;
+      padding-bottom: 20px;
+      margin-bottom: 10px;
+    }
+    
+    dd {
+      width: 80%;
+      padding-bottom: 20px;
+      margin-bottom: 10px;
+    }
+  }
 
   @top-left {
     content: none;
@@ -219,12 +261,30 @@ html {
   margin-bottom: $chi;
   margin-left: $nodo;
   margin-right: $nodo;
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
 
-  @top-left {
-    content: none;
+  img {
+    width: 120px;
+    height: 120px;
   }
-  @top-right {
-    content: none;
+
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    dt {
+      width: 30%;
+      padding-bottom: 20px;
+      margin-bottom: 10px;
+    }
+    
+    dd {
+      width: 70%;
+      padding-bottom: 20px;
+      margin-bottom: 10px;
+    }
   }
 }
 
