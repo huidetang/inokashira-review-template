@@ -1,6 +1,6 @@
 inherit: ["config.yml"]
-cover: false
-backcover: false
+cover: null
+backcover: null
 prt: ○○印刷所
 chapterlink: null
 externallink: true

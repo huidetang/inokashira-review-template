@@ -210,6 +210,10 @@ html {
 }
 
 @page colophon {
+  size: $paper-size;
+  bleed: $bleed-size;
+  width: $content-width;
+  height: $content-height;
   margin-top: $ten;
   margin-bottom: $chi;
   margin-left: $nodo;
@@ -220,27 +224,13 @@ html {
 
   div.colophon-content {
     margin-top: 50%;
-    h1, h2 {
-      margin-left: 0;
-    }
-  }
 
-  dl {
-    margin-left: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-
-    dt {
-      width: 20%;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
+    p.title {
+      font-size: 1.6rem;
     }
-    
-    dd {
-      width: 80%;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
+  
+    p.subtitle {
+      font-size: 1.3rem;
     }
   }
 
@@ -257,6 +247,10 @@ html {
 }
 
 @page profile {
+  size: $paper-size;
+  bleed: $bleed-size;
+  width: $content-width;
+  height: $content-height;
   margin-top: $ten;
   margin-bottom: $chi;
   margin-left: $nodo;
@@ -270,21 +264,24 @@ html {
     height: 120px;
   }
 
-  dl {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    dt {
-      width: 30%;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
-    }
-    
-    dd {
-      width: 70%;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
-    }
+  @top-left {
+    font-size: 5.5pt;
+    vertical-align: top;
+    margin-left: 3.75pt;
+    margin-top: 6mm;
+    -webkit-writing-mode: horizontal-tb;
+    -epub-writing-mode:   horizontal-tb;
+    writing-mode: horizontal-tb;
+  }
+
+  @top-right {
+    font-size: 5.5pt;
+    vertical-align: top;
+    margin-right: 3.75pt;
+    margin-top: 6mm;
+    -webkit-writing-mode: horizontal-tb;
+    -epub-writing-mode:   horizontal-tb;
+    writing-mode: horizontal-tb;
   }
 }
 

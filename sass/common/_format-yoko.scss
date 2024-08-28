@@ -225,25 +225,6 @@ html {
     }
   }
 
-  dl {
-    margin-left: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-
-    dt {
-      width: 20%;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
-    }
-    
-    dd {
-      width: 80%;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
-    }
-  }
-
   @top-left {
     content: none;
   }
@@ -268,23 +249,6 @@ html {
   img {
     width: 120px;
     height: 120px;
-  }
-
-  dl {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    dt {
-      width: 30%;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
-    }
-    
-    dd {
-      width: 70%;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
-    }
   }
 }
 
