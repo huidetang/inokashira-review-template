@@ -58,8 +58,7 @@ aut: ["るいざ・しゃーろっと"]
 # a-pht, pht: 撮影責任者
 # a-pbl, pbl: 出版社（発行所） ※ サークル名はここに設定するとよい
 a-pbl: 井の頭文芸部
-# a-prt, prt: 印刷所
-# prt: ねこのしっぽ
+# a-prt, prt: 印刷所 ※ 印刷所は config-print.yml で指定する。
 # a-red, red: 項目の枠組起草者
 # a-rev, rev: 評論者
 # a-spn, spn: 援助者
@@ -147,7 +146,7 @@ titlefile: title.xhtml
 
 # 奥付を作成するか。デフォルトでは作成されない。trueを指定するとデフォルトの奥付、ファイル名を指定するとそれがcolophon.htmlとしてコピーされる
 # デフォルトの奥付における各項目の名前（「著　者」など）を変えたいときにはlocale.ymlで文字列を設定する（詳細はdoc/format.ja.mdを参照）
-colophon: colophon.xhtml
+colophon: true
 # デフォルトの奥付における、各項目の記載順序
 # colophon_order: ["aut", "csl", "trl", "dsr", "ill", "cov", "edt", "pbl", "contact", "prt"]
 
@@ -155,9 +154,9 @@ colophon: colophon.xhtml
 backcover: backcover.xhtml
 
 # プロフィールページファイル  (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)。ファイル名を指定すると著者紹介として入る
-# profile: null
+profile: profile.xhtml
 # プロフィールページの目次上の見出し
-# profiletitle: 著者紹介
+profiletitle: 著者紹介
 
 # 広告ファイル。ファイル名を指定すると広告として入る (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
 # advfile: null

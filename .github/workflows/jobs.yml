@@ -15,6 +15,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  SIZE: a6 # 対応はa4, a5, a6, b5, shinsho
+  MUKI: tate # tateが縦組み、yokoが横組み
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # reviewdog-github-check:
@@ -61,7 +65,7 @@ jobs:
 
   epub:
     # needs: reviewdog-github-check
-    name: Make EPUB
+    name: EPUB
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/huideyeren/vivliostyle-review-docker:latest
@@ -90,9 +94,9 @@ jobs:
           name: ${{ format('inokashira-template_{0}_{1}', 'epub', steps.date.outputs.date) }}
           path: book.epub
 
-  vivliostyle-dockerfile:
+  print-pdf:
     # needs: reviewdog-github-check
-    name: Make PDF at Vivliostyle Renew
+    name: 塗り足しのある印刷用PDF
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/huideyeren/vivliostyle-review-docker:latest
@@ -110,7 +114,7 @@ jobs:
       - name: Install Node Package.
         run: pnpm install
       - name: Compile SCSS.
-        run: pnpm run style
+        run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}
       - name: Install gems.
         run: bundle install
       - name: Setup Python
@@ -129,5 +133,78 @@ jobs:
       - name: Upload artifact.
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ format('inokashira-template_{0}_{1}', 'vivliostyle-docker', steps.date.outputs.date) }}
+          name: ${{ format('inokashira-template_{0}_{1}', 'print-pdf', steps.date.outputs.date) }}
+          path: book.pdf
+
+  print-pdf-no-bleed:
+    # needs: reviewdog-github-check
+    name: 塗り足しのない印刷用PDF
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/huideyeren/vivliostyle-review-docker:latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Get current date and time
+        env: 
+          TZ: "Asia/Tokyo" # タイムゾーンを指定
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
+              # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
+      - name: Show date and time
+        run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
+      - name: Install Node Package.
+        run: pnpm install
+      - name: Compile SCSS.
+        run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
+      - name: Install gems.
+        run: bundle install
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Grayscaling images.
+        run: | 
+          python -m pip install --upgrade pip 
+          python -m pip install anshitsu
+          pwd | python grayscaling.py >> .grayscaling.log
+      - name: Show .grayscaling.log
+        run: cat .grayscaling.log
+      - name: Build PDF.
+        run: REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+      - name: Upload artifact.
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ format('inokashira-template_{0}_{1}', 'print-pdf-no-bleed', steps.date.outputs.date) }}
+          path: book.pdf
+
+  ebook-pdf:
+    # needs: reviewdog-github-check
+    name: 電子書籍用PDF
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/huideyeren/vivliostyle-review-docker:latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Get current date and time
+        env: 
+          TZ: "Asia/Tokyo" # タイムゾーンを指定
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
+              # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
+      - name: Show date and time
+        run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
+      - name: Install Node Package.
+        run: pnpm install
+      - name: Compile SCSS.
+        run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
+      - name: Install gems.
+        run: bundle install
+      - name: Build PDF.
+        run: REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+      - name: Upload artifact.
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ format('inokashira-template_{0}_{1}', 'ebook-pdf', steps.date.outputs.date) }}
           path: book.pdf

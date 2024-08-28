@@ -6,9 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "textlint *.re",
-    "style:a5": "sass ./sass/vivliostyle-a5.scss style.css",
-    "style:a4": "sass ./sass/vivliostyle-a4.scss style.css",
-    "style:a6": "sass ./sass/vivliostyle-a6.scss style.css",
+    "style:a5-tate": "sass ./sass/vivliostyle-a5-tate.scss style.css",
+    "style:a4-tate": "sass ./sass/vivliostyle-a4-tate.scss style.css",
+    "style:a6-tate": "sass ./sass/vivliostyle-a6-tate.scss style.css",
+    "style:b5-tate": "sass ./sass/vivliostyle-b5-tate.scss style.css",
+    "style:shinsho-tate": "sass ./sass/vivliostyle-shinsho-tate.scss style.css",
+    "style:a5-tate-no-bleed": "sass ./sass/vivliostyle-a5-tate-no-bleed.scss style.css",
+    "style:a4-tate-no-bleed": "sass ./sass/vivliostyle-a4-tate-no-bleed.scss style.css",
+    "style:a6-tate-no-bleed": "sass ./sass/vivliostyle-a6-tate-no-bleed.scss style.css",
+    "style:b5-tate-no-bleed": "sass ./sass/vivliostyle-b5-tate-no-bleed.scss style.css",
+    "style:shinsho-tate-no-bleed": "sass ./sass/vivliostyle-shinsho-tate-no-bleed.scss style.css",
     "style": "npm run style:a6"
   },
   "repository": {
