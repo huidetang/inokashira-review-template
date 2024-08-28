@@ -16,8 +16,8 @@ on:
   workflow_dispatch:
 
 env:
-  SIZE: a6 # 対応はa4, a5, a6, b5, shinsho
-  MUKI: tate # tateが縦組み、yokoが横組み
+  SIZE: a5 # 対応はa4, a5, a6, b5, shinsho
+  MUKI: yoko # tateが縦組み、yokoが横組み（※ shinshoはyoko非対応）
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -72,23 +72,23 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: Get current date and time
+      - name: 現在時刻を取得
         env: 
           TZ: "Asia/Tokyo" # タイムゾーンを指定
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
              # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
-      - name: Show date and time
+      - name: 現在時刻を確認
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
-      - name: Install Node Package.
+      - name: Node.jsのパッケージをインストール
         run: pnpm install
-      - name: Compile SCSS.
+      - name: SCSSのコンパイル
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
-      - name: Install gems.
+      - name: Rubyのパッケージをインストール
         run: bundle install
-      - name: Build EPUB.
+      - name: EPUBの生成
         run: bundle exec rake epub
-      - name: Upload artifact.
+      - name: 成果物のアップロード
         uses: actions/upload-artifact@v4
         with:
           name: ${{ format('inokashira-template_{0}_{1}', 'epub', steps.date.outputs.date) }}
@@ -103,34 +103,34 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: Get current date and time
+      - name: 現在時刻を取得
         env: 
           TZ: "Asia/Tokyo" # タイムゾーンを指定
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
               # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
-      - name: Show date and time
+      - name: 現在時刻を確認
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
-      - name: Install Node Package.
+      - name: Node.jsのパッケージをインストール
         run: pnpm install
-      - name: Compile SCSS.
+      - name: SCSSのコンパイル
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}
-      - name: Install gems.
+      - name: Rubyのパッケージをインストール
         run: bundle install
-      - name: Setup Python
+      - name: Pythonのセットアップ
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Grayscaling images.
+      - name: 画像の白黒化
         run: | 
           python -m pip install --upgrade pip 
           python -m pip install anshitsu
           pwd | python grayscaling.py >> .grayscaling.log
-      - name: Show .grayscaling.log
+      - name: 画像白黒化のログ確認
         run: cat .grayscaling.log
-      - name: Build PDF.
+      - name: PDFの生成
         run: REVIEW_CONFIG_FILE=config-print.yml REVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true bundle exec rake vivliostyle
-      - name: Upload artifact.
+      - name: 成果物のアップロード
         uses: actions/upload-artifact@v4
         with:
           name: ${{ format('inokashira-template_{0}_{1}', 'print-pdf', steps.date.outputs.date) }}
@@ -145,34 +145,34 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: Get current date and time
+      - name: 現在時刻を取得
         env: 
           TZ: "Asia/Tokyo" # タイムゾーンを指定
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
               # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
-      - name: Show date and time
+      - name: 現在時刻を確認
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
-      - name: Install Node Package.
+      - name: Node.jsのパッケージをインストール
         run: pnpm install
-      - name: Compile SCSS.
+      - name: SCSSのコンパイル
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
-      - name: Install gems.
+      - name: Rubyのパッケージをインストール
         run: bundle install
-      - name: Setup Python
+      - name: Pythonのセットアップ
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Grayscaling images.
+      - name: 画像の白黒化
         run: | 
           python -m pip install --upgrade pip 
           python -m pip install anshitsu
           pwd | python grayscaling.py >> .grayscaling.log
-      - name: Show .grayscaling.log
+      - name: 画像白黒化のログ確認
         run: cat .grayscaling.log
-      - name: Build PDF.
+      - name: PDFの生成
         run: REVIEW_CONFIG_FILE=config-print.yml EVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true bundle exec rake vivliostyle
-      - name: Upload artifact.
+      - name: 成果物のアップロード
         uses: actions/upload-artifact@v4
         with:
           name: ${{ format('inokashira-template_{0}_{1}', 'print-pdf-no-bleed', steps.date.outputs.date) }}
@@ -187,23 +187,23 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: Get current date and time
+      - name: 現在時刻を取得
         env: 
           TZ: "Asia/Tokyo" # タイムゾーンを指定
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
               # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
-      - name: Show date and time
+      - name: 現在時刻を確認
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
-      - name: Install Node Package.
+      - name: Node.jsのパッケージをインストール
         run: pnpm install
-      - name: Compile SCSS.
+      - name: SCSSのコンパイル
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
-      - name: Install gems.
+      - name: Rubyのパッケージをインストール
         run: bundle install
-      - name: Build PDF.
+      - name: PDFの生成
         run: REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
-      - name: Upload artifact.
+      - name: 成果物のアップロード
         uses: actions/upload-artifact@v4
         with:
           name: ${{ format('inokashira-template_{0}_{1}', 'ebook-pdf', steps.date.outputs.date) }}

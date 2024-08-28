@@ -1,11 +1,6 @@
 @charset "UTF-8";
 
 html {
-  /* 組み方向 */
-  -webkit-writing-mode: vertical-rl;
-  -epub-writing-mode:   vertical-rl;
-  writing-mode: vertical-rl;
-
   orphans: 1;
   widows: 1;
 }
@@ -202,12 +197,10 @@ html {
 }
 
 @page colophon {
-  width: 100% !important;
-  height: 100% !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  margin-right: 0 !important;
-  margin-left: 0 !important;
+  margin-top: $ten;
+  margin-bottom: $chi;
+  margin-left: $nodo;
+  margin-right: $nodo;
 
   @top-left {
     content: none;
@@ -217,14 +210,23 @@ html {
   }
 }
 
-//   @right-middle {
-//     content: none;
-//   }
+.profile {
+  page: profile;
+}
 
-//   @left-middle {
-//     content: none;
-//   }
+@page profile {
+  margin-top: $ten;
+  margin-bottom: $chi;
+  margin-left: $nodo;
+  margin-right: $nodo;
 
+  @top-left {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
+}
 
 .backcover {
   page: backcover;

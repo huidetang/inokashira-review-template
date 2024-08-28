@@ -202,6 +202,11 @@ html {
 }
 
 @page colophon {
+  margin-top: $ten;
+  margin-bottom: $chi;
+  margin-left: $nodo;
+  margin-right: $nodo;
+
   @top-left {
     content: none;
   }
@@ -215,6 +220,11 @@ html {
 }
 
 @page profile {
+  margin-top: $ten;
+  margin-bottom: $chi;
+  margin-left: $nodo;
+  margin-right: $nodo;
+
   @top-left {
     content: none;
   }
