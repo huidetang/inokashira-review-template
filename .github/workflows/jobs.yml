@@ -83,7 +83,7 @@ jobs:
       - name: Install gems.
         run: bundle install
       - name: Build EPUB.
-        run: REVIEW_CONFIG_FILE=config-epub.yml bundle exec rake epub
+        run: bundle exec rake epub
       - name: Upload artifact.
         uses: actions/upload-artifact@v4
         with:
@@ -125,7 +125,7 @@ jobs:
       - name: Show .grayscaling.log
         run: cat .grayscaling.log
       - name: Build PDF.
-        run: REVIEW_CONFIG_FILE=config-vivliostyle.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+        run: REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
       - name: Upload artifact.
         uses: actions/upload-artifact@v4
         with:

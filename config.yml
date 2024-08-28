@@ -127,17 +127,17 @@ toc: true
 # mytoc: true
 
 # 表紙にするファイル。ファイル名を指定すると表紙として入る (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
-# cover: null
+cover: cover.xhtml
 #
 # 表紙に配置し、書籍の影絵にも利用する画像ファイル。省略した場合はnull (画像を使わない)。画像ディレクトリ内に置いてもディレクトリ名は不要(例: cover.jpg)
 # PDFMaker 固有の表紙設定は pdfmaker セクション内で上書き可能
-coverimage: title.png
+# coverimage: title.png
 #
 # 表紙の後に大扉ページを作成するか。省略した場合はtrue (作成する)
 # titlepage: false
 #
 # 自動生成される大扉ページを上書きするファイル。ファイル名を指定すると大扉として入る (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
-# titlefile: null
+titlefile: title.xhtml
 #
 # 原書大扉ページにするファイル。ファイル名を指定すると原書大扉として入る (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
 # originaltitlefile: null
@@ -147,13 +147,12 @@ coverimage: title.png
 
 # 奥付を作成するか。デフォルトでは作成されない。trueを指定するとデフォルトの奥付、ファイル名を指定するとそれがcolophon.htmlとしてコピーされる
 # デフォルトの奥付における各項目の名前（「著　者」など）を変えたいときにはlocale.ymlで文字列を設定する（詳細はdoc/format.ja.mdを参照）
-# colophon: null
-colophon: true
+colophon: colophon.xhtml
 # デフォルトの奥付における、各項目の記載順序
 # colophon_order: ["aut", "csl", "trl", "dsr", "ill", "cov", "edt", "pbl", "contact", "prt"]
 
 # 裏表紙データファイル (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
-# backcover: null
+backcover: backcover.xhtml
 
 # プロフィールページファイル  (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)。ファイル名を指定すると著者紹介として入る
 # profile: null
@@ -176,8 +175,8 @@ colophon: true
 # font_ext: ["ttf", "woff", "otf"]
 
 # ソースコードハイライトを利用する (rouge,pygmentsには外部gemが必要)
-# highlight:
-#   html: "rouge"
+highlight:
+  html: "rouge"
 #   latex: "listings"
 
 # カタログファイル名を指定する

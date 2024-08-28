@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "textlint *.re",
-    "style:a5": "sass ./sass/vivliostyle-a5.scss vivliostyle-a5.css",
-    "style:a4": "sass ./sass/vivliostyle-a4.scss vivliostyle-a4.css",
-    "style:a6": "sass ./sass/vivliostyle-a6.scss vivliostyle-a6.css",
+    "style:a5": "sass ./sass/vivliostyle-a5.scss style.css",
+    "style:a4": "sass ./sass/vivliostyle-a4.scss style.css",
+    "style:a6": "sass ./sass/vivliostyle-a6.scss style.css",
     "style": "npm run style:a6"
   },
   "repository": {
