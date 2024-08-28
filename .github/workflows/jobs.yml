@@ -72,7 +72,7 @@ jobs:
         env: 
           TZ: "Asia/Tokyo" # タイムゾーンを指定
         id: date
-        run: echo "::set-output name=date::$(date +'%Y年%m月%d日_%H時%M分')"
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
              # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
       - name: Show date and time
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
@@ -103,7 +103,7 @@ jobs:
         env: 
           TZ: "Asia/Tokyo" # タイムゾーンを指定
         id: date
-        run: echo "::set-output name=date::$(date +'%Y年%m月%d日_%H時%M分')"
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
               # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
       - name: Show date and time
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
