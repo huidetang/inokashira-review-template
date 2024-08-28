@@ -64,7 +64,7 @@ jobs:
     name: Make EPUB
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/huideyeren/review-docker:main
+      image: ghcr.io/huideyeren/vivliostyle-review-docker:latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
