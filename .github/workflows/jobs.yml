@@ -83,7 +83,7 @@ jobs:
       - name: Install Node Package.
         run: pnpm install
       - name: Compile SCSS.
-        run: pnpm run style
+        run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Install gems.
         run: bundle install
       - name: Build EPUB.
@@ -129,7 +129,7 @@ jobs:
       - name: Show .grayscaling.log
         run: cat .grayscaling.log
       - name: Build PDF.
-        run: REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+        run: REVIEW_CONFIG_FILE=config-print.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
       - name: Upload artifact.
         uses: actions/upload-artifact@v4
         with:
@@ -171,7 +171,7 @@ jobs:
       - name: Show .grayscaling.log
         run: cat .grayscaling.log
       - name: Build PDF.
-        run: REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+        run: REVIEW_CONFIG_FILE=config-print.yml EVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
       - name: Upload artifact.
         uses: actions/upload-artifact@v4
         with:

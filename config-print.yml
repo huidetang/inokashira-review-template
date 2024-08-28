@@ -2,3 +2,5 @@ inherit: ["config.yml"]
 cover: null
 backcover: null
 prt: ○○印刷所
+chapterlink: null
+externallink: true
