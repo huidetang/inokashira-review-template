@@ -129,7 +129,7 @@ jobs:
       - name: Show .grayscaling.log
         run: cat .grayscaling.log
       - name: Build PDF.
-        run: REVIEW_CONFIG_FILE=config-print.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+        run: REVIEW_CONFIG_FILE=config-print.yml REVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true bundle exec rake vivliostyle
       - name: Upload artifact.
         uses: actions/upload-artifact@v4
         with:
@@ -171,7 +171,7 @@ jobs:
       - name: Show .grayscaling.log
         run: cat .grayscaling.log
       - name: Build PDF.
-        run: REVIEW_CONFIG_FILE=config-print.yml EVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+        run: REVIEW_CONFIG_FILE=config-print.yml EVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true bundle exec rake vivliostyle
       - name: Upload artifact.
         uses: actions/upload-artifact@v4
         with:

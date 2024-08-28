@@ -40,6 +40,7 @@ REVIEW_VSCLI = ENV['REVIEW_VSCLI'] || 'vivliostyle'
 REVIEW_VSCLI_USESANDBOX = ENV['REVIEW_VSCLI_USESANDBOX'] ? '' : '--no-sandbox'
 REVIEW_VSCLI_PDF = ENV['REVIEW_VSCLI_PDF'] || BOOK_PDF
 REVIEW_VSCLI_OPTIONS = ENV['REVIEW_VSCLI_OPTIONS'] || ''
+REVIEW_VSCLI_GRAYSCALE = ENV['REVIEW_VSCLI_GRAYSCALE'] ? '--preflight-option gray-scale' : ''
 
 def build(mode, chapter)
   sh("review-compile --target=#{mode} --footnotetext --stylesheet=style.css #{chapter} > tmp")
@@ -137,7 +138,7 @@ end
 
 desc 'build with vivliostyle'
 task 'vivliostyle:build': BOOK_EPUB do
-  sh "#{REVIEW_VSCLI} build #{REVIEW_VSCLI_USESANDBOX} #{REVIEW_VSCLI_OPTIONS} --preflight press-ready-local --preflight-option gray-scale -o #{REVIEW_VSCLI_PDF} #{BOOK_EPUB}"
+  sh "#{REVIEW_VSCLI} build #{REVIEW_VSCLI_USESANDBOX} #{REVIEW_VSCLI_OPTIONS} --preflight press-ready-local -o #{REVIEW_VSCLI_PDF} #{BOOK_EPUB}"
 end
 
 desc 'build with vivliostyle'
