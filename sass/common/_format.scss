@@ -206,6 +206,10 @@ html {
 /* 奥付 */
 .colophon {
   page: colophon;
+
+  &.page-break {
+    margin-right: 0;
+  }
 }
 
 @page colophon {
@@ -218,10 +222,6 @@ html {
   margin-left: $nodo;
   margin-right: $nodo;
   font-size: 0.8rem;
-
-  &.page-break {
-    margin-right: 0;
-  }
 
   div.colophon-content {
     max-width: 100%;
