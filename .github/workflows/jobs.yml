@@ -208,3 +208,35 @@ jobs:
         with:
           name: ${{ format('inokashira-template_{0}_{1}', 'ebook-pdf', steps.date.outputs.date) }}
           path: book.pdf
+
+
+  yoko-pdf:
+    # needs: reviewdog-github-check
+    name: 横書きPDF
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/huideyeren/vivliostyle-review-docker:latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: 現在時刻を取得
+        env: 
+          TZ: "Asia/Tokyo" # タイムゾーンを指定
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
+              # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
+      - name: 現在時刻を確認
+        run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
+      - name: Node.jsのパッケージをインストール
+        run: pnpm install
+      - name: SCSSのコンパイル
+        run: pnpm run style:${{ env.SIZE }}-yoko-no-bleed
+      - name: Rubyのパッケージをインストール
+        run: bundle install
+      - name: PDFの生成
+        run: REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+      - name: 成果物のアップロード
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ format('inokashira-template_{0}_{1}', 'yoko-pdf', steps.date.outputs.date) }}
+          path: book.pdf

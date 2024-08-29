@@ -1,13 +1,14 @@
 @charset "UTF-8";
-@import 'common/_fonts.scss';
+@import 'yoko/fonts';
 
 // 基本フォントサイズ
 $base-font-size: 9pt;
 // 基本行送り
 $base-line-height: 1.4rem;
-// 基本フォントファミリー
-//$base-font-family: "EB Garamond", "Yakumono", "Nanum Myeongjo", "Noto Serif CJK jp", serif;
-$base-font-family: "EB Garamond", "Yakumono", "Noto Serif CJK jp", serif;
+
+
+//組み方向
+$writing-mode: horizontal-tb;
 
 // 行数
 $lines: 22;
@@ -42,8 +43,10 @@ $content-width: $paper-width - $koguchi - $nodo;
 $content-height: $paper-height - $ten - $chi;
 
 // ページのスタイル定義
-@import 'common/format-yoko';
+@import 'common/format';
 // タイポグラフィのスタイル定義
-@import 'common/typography';
+@import 'yoko/typography';
 // コンテンツのスタイル定義
-@import 'common/contents';
+@import 'yoko/contents';
+// シンタックスハイライト
+@import 'common/rouge';
