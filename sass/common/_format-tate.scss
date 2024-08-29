@@ -221,9 +221,7 @@ html {
   margin-bottom: $chi;
   margin-left: $nodo;
   margin-right: $nodo;
-  writing-mode: horizontal-tb;
-  -webkit-writing-mode: horizontal-tb;
-  -epub-writing-mode: horizontal-tb;
+  font-size: 0.8rem;
 
   div.colophon-content {
     margin-block-start: 50%;
@@ -247,9 +245,6 @@ html {
 
 .profile {
   page: profile;
-  writing-mode: horizontal-tb;
-  -webkit-writing-mode: horizontal-tb;
-  -epub-writing-mode: horizontal-tb;
 }
 
 @page profile {
@@ -261,9 +256,7 @@ html {
   margin-bottom: $chi;
   margin-left: $nodo;
   margin-right: $nodo;
-  writing-mode: horizontal-tb;
-  -webkit-writing-mode: horizontal-tb;
-  -epub-writing-mode: horizontal-tb;
+  font-size: 0.8em;
 
   img {
     width: 120px;
