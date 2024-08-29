@@ -5,7 +5,7 @@ CHAPS:
   - はじめに:
     - inokashira-review-template.re
   - ReVIEW独自マークアップ言語:
-    - test.re
+    - how-to-use.re
   - Markdown:
     - markdown.re
   - Microsoft word:
