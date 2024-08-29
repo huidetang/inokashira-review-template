@@ -275,10 +275,20 @@ a {
   padding-right: 3px;
 }
 
-code {
+pre {
+  word-wrap: break-word;
   writing-mode: horizontal-tb;
   -webkit-writing-mode: horizontal-tb;
   -epub-writing-mode: horizontal-tb;
-  margin-block-start: 1.5rem;
-  margin-block-end: 1.5rem;
+  font-size: 0.8rem;
+  width: $content-width - 4rem;
+  margin: 0 auto;
+  padding: 5px;
+  break-before: page;
+  break-after: page;
+
+  code {
+    border: 1px #aaa solid;
+    border-radius: 4px;
+  }
 }
