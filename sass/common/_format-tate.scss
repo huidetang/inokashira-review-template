@@ -207,6 +207,9 @@ html {
 
 .colophon {
   page: colophon;
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
 }
 
 @page colophon {
@@ -223,7 +226,7 @@ html {
   -epub-writing-mode: horizontal-tb;
 
   div.colophon-content {
-    margin-top: 50%;
+    margin-block-start: 50%;
 
     p.title {
       font-size: 1.6rem;
@@ -244,6 +247,9 @@ html {
 
 .profile {
   page: profile;
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
 }
 
 @page profile {

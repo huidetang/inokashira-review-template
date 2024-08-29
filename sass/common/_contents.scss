@@ -152,7 +152,7 @@ dl {
   }
   
   dd {
-    padding-left: 10px;
+    text-indent: 1rem;
     width: 80%;
   }
 }
@@ -272,4 +272,12 @@ a {
   text-decoration: none;
   border-right: 1px dashed;
   padding-right: 3px;
+}
+
+code {
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
+  margin-block-start: 1.5rem;
+  margin-block-end: 1.5rem;
 }
