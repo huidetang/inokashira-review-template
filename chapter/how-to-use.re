@@ -46,7 +46,7 @@ $ REVIEW_CONFIG_FILE=config-ebook.yml REVIEW_VSCLI_USESANDBOX=true bundle exec r
 
 このテンプレートは以下の仕組みでPDFを生成します。
 
-//graph[shikumi][mermaid][このテンプレートの仕組み]{
+//image[shikumi][このテンプレートの仕組み]{
 graph TD
    docx[Microsoft Wordファイル] --> pandoc[Pandoc]
    md[Markdownファイル] --> pandoc
@@ -172,10 +172,6 @@ Mọi con người đều được tạo hóa ban cho lý trí và lương tâm 
 === 画像
 
 画像を追加することもできます。SVGにも対応しています。
-
-//image[sign][SVG画像の例（サイン）][scale=0.8]{
-   サイン画像
-//}
 
 === 表紙
 
