@@ -3,5 +3,5 @@
 DIR=$1
 for file in `\find $DIR -name '*.mermaid'`; do
     filename=${file%.*}
-    mmdc -i ${filename}".mermaid" -o ${filename}".png" -t neutral -b transparent
+    mmdc -i ${filename}".mermaid" -o ${filename}".png" -t neutral -b transparent --no-sandbox
 done
