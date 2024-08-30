@@ -230,7 +230,7 @@ math_format: imgmath
 # という構成にする必要がある(インデントさせる)
 imgmath_options:
   # 使用する画像拡張子。通常は「png」か「svg」（svgの場合は、pdfcrop_pixelize_cmdの-pngも-svgにする）
-  format: svg
+  format: png
   # 変換手法。pdfcrop または dvipng
   converter: pdfcrop
   # プリアンブルの内容を上書きするファイルを指定する（デフォルトはupLaTeX+jsarticle.clsを前提とした、lib/review/makerhelper.rbのdefault_imgmath_preambleメソッドの内容）
@@ -471,8 +471,8 @@ texstyle: ["reviewmacro"]
 #   #
 #   # pdfmaker:階層を使うものはここまで
 
-playwright_options:
-  playwright_path: "./node_modules/.bin/playwright"
-  selfcrop: true
-  pdfcrop_path: "pdfcrop"
-  pdftocairo_path: "pdftocairo"
+# playwright_options:
+#   playwright_path: "./node_modules/.bin/playwright"
+#   selfcrop: true
+#   pdfcrop_path: "pdfcrop"
+#   pdftocairo_path: "pdftocairo"

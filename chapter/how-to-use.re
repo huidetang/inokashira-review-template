@@ -46,7 +46,7 @@ $ REVIEW_CONFIG_FILE=config-ebook.yml REVIEW_VSCLI_USESANDBOX=true bundle exec r
 
 このテンプレートは以下の仕組みでPDFを生成します。
 
-//graph[shikumi][mermaid][このテンプレートの仕組み]{
+//image[shikumi][このテンプレートの仕組み][scale=0.9]{
 graph TD
    docx[Microsoft Wordファイル] --> pandoc[Pandoc]
    md[Markdownファイル] --> pandoc

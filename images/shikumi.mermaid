@@ -1,0 +1,14 @@
+graph TD
+   docx[Microsoft Wordファイル] --> pandoc[Pandoc]
+   md[Markdownファイル] --> pandoc
+   pandoc --> review[Re:VIEW]
+   re[.reファイル] --> review
+   image[画像ファイル] --> review
+   scss[.scssファイル] --> sass[Sass]
+   sass --> css[CSS]
+   css --> review
+   review --> epub[EPUB]
+   review --> uplatex[upLaTeX]
+   epub --> vivliostyle[Vivliostyle]
+   vivliostyle --> pdf[PDF]
+   uplatex --> pdf
