@@ -37,7 +37,7 @@ Re:VIEW の `//blankline` を入れるには、`\` を行末とその次の行�
 
 詳しくは https://github.com/kmuto/pandoc2review/blob/main/markdown-format.ja.md 参照。
 
-~~~TypeScript
+~~~TypeScript {caption="コードブロックの表示"}
 const variable = 0;
 
 if (variable) {
@@ -66,7 +66,7 @@ if (variable) {
 
 書き方は以下の通り。
 
-~~~Markdown
+~~~Markdown {caption="Markdownでの定義リストの書き方"}
 定義リスト
 :   使える
 ~~~
@@ -116,19 +116,19 @@ TeX数式形式が使える。
 
 `images` フォルダに配置する必要があるが、パスを指定するときは省略する。
 
-~~~Markdown
+~~~Markdown {caption="Markdownでの画像の貼り方"}
 ![与謝野晶子](yosano_akiko_is_always_watching_you.png)
 ~~~
 
 width、height、scale の属性が付けられているときには、scale パラメータに変換される。
 
-~~~Markdown
+~~~Markdown {caption="Markdownでのスケール指定しての画像の貼り方"}
 ![与謝野晶子](yosano_akiko_is_always_watching_you.png){scale=2}
 ~~~
 
 前また後に文字があるときには、インライン画像と見なし、アイコンに変換される。
 
-~~~Markdown
+~~~Markdown {caption="Markdownでのインライン画像の貼り方"}
 レターパックで ![与謝野晶子](yosano_akiko_is_always_watching_you.png) 送れ
 ~~~
 
@@ -140,7 +140,7 @@ HTML の生タグであるブロック `<div>`、インライン `<span>` の属
 
 縦中横はspanタグを使える。
 
-~~~Markdown
+~~~Markdown {caption="MarkdownでのHTMLタグの使用"}
 万物のすべての答えは<span class="tcy">42</span>である。
 ~~~
 

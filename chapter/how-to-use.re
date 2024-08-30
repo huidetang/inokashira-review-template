@@ -22,22 +22,22 @@ Dockerを使わない場合は以下のプログラミング言語環境が必�
 
 //cmd{
 # Node.jsのパッケージをインストール
-$ @<b>{pnpm install /}
+$ pnpm install
 
 # SCSSのコンパイル（ここでは文庫・縦・塗り足し無し）
-$ @<b>{pnpm run style:a6-tate-no-bleed /}
+$ pnpm run style:a6-tate-no-bleed
 
 # popplerのインストール
-$ @<b>{apt install poppler-utils /}
+$ apt install poppler-utils
 
 # Rubyのパッケージをインストール
-$ @<b>{bundle install /}
+$ bundle install
 
 # EPUBの生成
-$ @<b>{REVIEW_CONFIG_FILE=config-ebook.yml bundle exec rake epub /}
+$ REVIEW_CONFIG_FILE=config-ebook.yml bundle exec rake epub
 
 # VivliostyleによるPDFの生成
-$ @<b>{REVIEW_CONFIG_FILE=config-ebook.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle /}
+$ REVIEW_CONFIG_FILE=config-ebook.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
 //}
 
 なお、できる限りGitHubか、Dockerコンテナ上のLinuxで
@@ -217,6 +217,12 @@ Re:VIEWには索引という機能がありますが、このテンプレート�
 EPUBからPDFを作るというフローですが、残念ながらEPUBでは索引機能に対応していません。
 
 LaTeXなら対応しているのですが……。
+
+=== コードブロック
+
+コードブロックは直前のページで改ページされ、次のページに表示されます。
+
+なるべくキャプションを付けることをおすすめします。
 
 === 参考文献
 
