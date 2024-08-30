@@ -164,3 +164,6 @@ pnpm-lock.yaml
 
 # Gemfile.lock
 Gemfile.lock
+
+# mermaid SVG
+images/html/

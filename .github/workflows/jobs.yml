@@ -89,6 +89,8 @@ jobs:
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Rubyのパッケージをインストール
         run: bundle install
+      - name: SVGのPNG化
+        run: ./svgtopng.sh images/*.svg
       - name: EPUBの生成
         run: REVIEW_CONFIG_FILE=config-ebook.yml bundle exec rake epub
       - name: 成果物のアップロード
@@ -123,6 +125,8 @@ jobs:
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}
       - name: Rubyのパッケージをインストール
         run: bundle install
+      - name: SVGのPNG化
+        run: ./svgtopng.sh images/*.svg
       - name: Pythonのセットアップ
         uses: actions/setup-python@v5
         with:
@@ -168,6 +172,8 @@ jobs:
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Rubyのパッケージをインストール
         run: bundle install
+      - name: SVGのPNG化
+        run: ./svgtopng.sh images/*.svg
       - name: Pythonのセットアップ
         uses: actions/setup-python@v5
         with:
@@ -212,6 +218,8 @@ jobs:
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Rubyのパッケージをインストール
         run: bundle install
+      - name: SVGのPNG化
+        run: ./svgtopng.sh images/*.svg
       - name: PDFの生成
         run: REVIEW_CONFIG_FILE=config-ebook.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
       - name: 成果物のアップロード

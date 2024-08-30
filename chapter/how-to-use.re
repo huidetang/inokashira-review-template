@@ -80,7 +80,11 @@ graph TD
  * PNGファイル
  * GIFファイル
  * JPEGファイル
- * SVGファイル
+
+なお、SVGファイルを含めることもできますが、PNGファイルに変換されて組み込まれます。SVGファイルを指定するときは、念のためスケールの設定をしておくことをおすすめします。
+
+//image[sign][SVGの表示例(私のサイン)][scale=0.8]{
+//}
 
 印刷用PDFでは全て白黒化されます。
 
@@ -168,10 +172,6 @@ EPUBおよびVivliostyle版は以下の文字種に対応しています。
 
 Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền.
 Mọi con người đều được tạo hóa ban cho lý trí và lương tâm và cần phải đối xử với nhau trong tình bằng hữu.
-
-=== 画像
-
-画像を追加することもできます。SVGにも対応しています。
 
 === 表紙
 

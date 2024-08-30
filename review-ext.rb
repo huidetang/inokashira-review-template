@@ -20,11 +20,25 @@ module ReVIEW
     end
   end
 
+  module ImgGraphOverride
+    def graph_ext
+      if %w[html markdown rst].include?(@target_name)
+        'png'
+      else
+        'pdf'
+      end
+    end
+  end
+
   class HTMLBuilder
     prepend HTMLBuilderOverride
   end
 
   class LATEXBuilder
     prepend LATEXBuilderOverride
+  end
+
+  class ImgGraph
+    prepend ImgGraphOverride
   end
 end
