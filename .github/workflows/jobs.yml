@@ -83,6 +83,8 @@ jobs:
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
       - name: Node.jsのパッケージをインストール
         run: pnpm install
+      - name: Playwrightのインストール
+        run: ./node_modules/.bin/playwright install
       - name: SCSSのコンパイル
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Rubyのパッケージをインストール
@@ -115,6 +117,8 @@ jobs:
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
       - name: Node.jsのパッケージをインストール
         run: pnpm install
+      - name: Playwrightのインストール
+        run: ./node_modules/.bin/playwright install
       - name: SCSSのコンパイル
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}
       - name: Rubyのパッケージをインストール
@@ -158,6 +162,8 @@ jobs:
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
       - name: Node.jsのパッケージをインストール
         run: pnpm install
+      - name: Playwrightのインストール
+        run: ./node_modules/.bin/playwright install
       - name: SCSSのコンパイル
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Rubyのパッケージをインストール
@@ -200,6 +206,8 @@ jobs:
         run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
       - name: Node.jsのパッケージをインストール
         run: pnpm install
+      - name: Playwrightのインストール
+        run: ./node_modules/.bin/playwright install
       - name: SCSSのコンパイル
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Rubyのパッケージをインストール
@@ -232,6 +240,12 @@ jobs:
   #       run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
   #     - name: Rubyのパッケージをインストール
   #       run: bundle install
+  #     - name: Node.jsのパッケージをインストール
+  #       run: npm install
+  #     - name: Playwrightのインストール
+  #       run: ./node_modules/.bin/playwright install
+  #     - name: pdfcropコマンドを使えるようにする
+  #       run: apt install texlive-extra-utils
   #     - name: PlantUMLのコピー
   #       run: cp /java/plantuml.jar .
   #     - name: ツールのチェック
