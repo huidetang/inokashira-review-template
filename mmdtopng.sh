@@ -1,12 +1,7 @@
 #!/bin/sh
-
-while [ -n "$1" ]
-do
-    fullname=$1
-    extension=${fullname##*.}
-    filename=${fullname%.*}
-    if [ extension == "mermaid" ] ; then
-        mmdc -i ${filename}".mermaid" -o ${filename}".png" -t neutral -b transparent
-    fi
-    shift
+[ "x$1" = "x" ] && exit 1
+DIR=$1
+for file in `\find $DIR -name '*.mermaid'`; do
+    filename=${file%.*}
+    mmdc -i ${filename}".mermaid" -o ${filename}".png" -t neutral -b transparent
 done
