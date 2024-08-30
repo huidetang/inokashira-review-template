@@ -1,20 +1,46 @@
 = このテンプレートの使い方
 
-井の頭文芸部で作った、@<href>{https://github.com/kmuto/review,Re:VIEW}で書籍を作るためのテンプレートです。
-
-GitHubにあるこのテンプレートを使うことで、印刷に向くPDF文書を作ることができます。
-
-縦書きと横書きに対応しています。
-
-使用する前にこの文章をご一読いただけると幸いです。
+この章ではこのテンプレートの使い方について説明します。
 
 == このテンプレートを使うのに必要なもの
 
 このテンプレートは以下のツール・サービスを使用します。
 
  * GitHub
- * Visual Studio Code
+ * テキストエディタ（おすすめはVisual Studio Code）
  * Docker（あれば）
+
+Dockerを使わない場合は以下のプログラミング言語環境が必要になりますが、@<b>{非推奨}です。
+
+ * Node.js
+ ** パッケージマネージャーはpnpmを推奨
+ * Ruby
+ * Python
+ * poppler
+
+ビルドする際は以下の順番でコマンドを入力してください。これはEPUBと塗り足し・トンボ無しの電子書籍用PDFを生成する手順です。OSはLinuxを想定しています。
+
+//cmd{
+# Node.jsのパッケージをインストール
+$ @<b>{pnpm install /}
+
+# SCSSのコンパイル（ここでは文庫・縦・塗り足し無し）
+$ @<b>{pnpm run style:b6-tate-no-bleed /}
+
+# popplerのインストール
+$ @<b>{apt install poppler-utils /}
+
+# Rubyのパッケージをインストール
+$ @<b>{bundle install /}
+
+# EPUBの生成
+$ @<b>{REVIEW_CONFIG_FILE=config-ebook.yml bundle exec rake epub /}
+
+# VivliostyleによるPDFの生成
+$ @<b>{REVIEW_CONFIG_FILE=config-ebook.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle /}
+//}
+
+なお、できる限りGitHubか、Dockerコンテナ上のLinuxで
 
 == このテンプレートの仕組み
 
@@ -142,6 +168,14 @@ EPUBおよびVivliostyle版は以下の文字種に対応しています。
 
 Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và quyền.
 Mọi con người đều được tạo hóa ban cho lý trí và lương tâm và cần phải đối xử với nhau trong tình bằng hữu.
+
+=== 画像
+
+画像を追加することもできます。SVGにも対応しています。
+
+//image[sign][SVG画像の例（サイン）][scale=0.8]{
+   サイン画像
+//}
 
 === 表紙
 

@@ -2,8 +2,6 @@ PREDEF:
   - preface.re
 
 CHAPS:
-  - はじめに:
-    - inokashira-review-template.re
   - ReVIEW独自マークアップ言語:
     - how-to-use.re
   - Markdown:

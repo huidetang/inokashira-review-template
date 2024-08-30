@@ -153,12 +153,11 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/vim,linux,macos,emacs,windows
 
-/vivliostyle-a4.css
-/vivliostyle-a4.css.map
-/vivliostyle-a5.css
-/vivliostyle-a5.css.map
-/vivliostyle-a6.css
-/vivliostyle-a6.css.map
+style.css
+style.css.map
 /_refiles/
 /node_modules
 sty/old/
+
+# pnpm-lock.yaml
+pnpm-lock.yaml
