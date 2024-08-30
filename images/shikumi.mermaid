@@ -3,7 +3,8 @@ graph TD
    md[Markdownファイル] --> pandoc
    pandoc --> review[Re:VIEW]
    re[.reファイル] --> review
-   image[画像ファイル] --> review
+   mermaid[Mermaidファイル] --> image[画像ファイル] 
+   image --> review
    scss[.scssファイル] --> sass[Sass]
    sass --> css[CSS]
    css --> review

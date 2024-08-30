@@ -87,8 +87,6 @@ jobs:
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Rubyのパッケージをインストール
         run: bundle install
-      - name: SVGのPNG化
-        run: ./svgtopng.sh images
       - name: MermaidのPNG化
         run: ./mmdtopng.sh images
       - name: EPUBの生成
@@ -123,8 +121,6 @@ jobs:
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}
       - name: Rubyのパッケージをインストール
         run: bundle install
-      - name: SVGのPNG化
-        run: ./svgtopng.sh images
       - name: MermaidのPNG化
         run: ./mmdtopng.sh images
       # - name: Pythonのセットアップ
@@ -170,8 +166,6 @@ jobs:
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Rubyのパッケージをインストール
         run: bundle install
-      - name: SVGのPNG化
-        run: ./svgtopng.sh images
       - name: MermaidのPNG化
         run: ./mmdtopng.sh images
       # - name: Pythonのセットアップ
@@ -216,8 +210,6 @@ jobs:
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
       - name: Rubyのパッケージをインストール
         run: bundle install
-      - name: SVGのPNG化
-        run: ./svgtopng.sh images
       - name: MermaidのPNG化
         run: ./mmdtopng.sh images
       - name: PDFの生成
