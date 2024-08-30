@@ -161,3 +161,6 @@ sty/old/
 
 # pnpm-lock.yaml
 pnpm-lock.yaml
+
+# Gemfile.lock
+Gemfile.lock

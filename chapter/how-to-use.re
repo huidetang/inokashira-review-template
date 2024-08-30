@@ -25,7 +25,7 @@ Dockerを使わない場合は以下のプログラミング言語環境が必�
 $ @<b>{pnpm install /}
 
 # SCSSのコンパイル（ここでは文庫・縦・塗り足し無し）
-$ @<b>{pnpm run style:b6-tate-no-bleed /}
+$ @<b>{pnpm run style:a6-tate-no-bleed /}
 
 # popplerのインストール
 $ @<b>{apt install poppler-utils /}
