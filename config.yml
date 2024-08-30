@@ -69,12 +69,12 @@ a-pbl: 井の頭文芸部
 contact: "るいざ・しゃーろっと < louisa.vrc@gmail.com >"
 
 # 刊行日(省略した場合は実行時の日付)
-date: 2024-08-03
+date: 2024-09-01
 # 発行年月。YYYY-MM-DD形式による配列指定。省略した場合はdateを使用する
 # 複数指定する場合は次のように記述する
 # [["初版第1刷の日付", "初版第2刷の日付"], ["第2版第1刷の日付"]]
 # 日付の後ろを空白文字で区切り、任意の文字列を置くことも可能。
-history: [["二〇二四年八月三日"]]
+history: [["二〇二四年九月一日"]]
 # 権利表記(配列で複数指定可)
 rights: (C) 二〇二四 井の頭文芸部
 # description: 説明
@@ -126,7 +126,7 @@ toc: true
 # mytoc: true
 
 # 表紙にするファイル。ファイル名を指定すると表紙として入る (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
-cover: cover.xhtml
+# cover: cover.xhtml
 #
 # 表紙に配置し、書籍の影絵にも利用する画像ファイル。省略した場合はnull (画像を使わない)。画像ディレクトリ内に置いてもディレクトリ名は不要(例: cover.jpg)
 # PDFMaker 固有の表紙設定は pdfmaker セクション内で上書き可能
@@ -136,7 +136,7 @@ cover: cover.xhtml
 # titlepage: false
 #
 # 自動生成される大扉ページを上書きするファイル。ファイル名を指定すると大扉として入る (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
-titlefile: title.xhtml
+# titlefile: title.xhtml
 #
 # 原書大扉ページにするファイル。ファイル名を指定すると原書大扉として入る (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
 # originaltitlefile: null
@@ -146,17 +146,17 @@ titlefile: title.xhtml
 
 # 奥付を作成するか。デフォルトでは作成されない。trueを指定するとデフォルトの奥付、ファイル名を指定するとそれがcolophon.htmlとしてコピーされる
 # デフォルトの奥付における各項目の名前（「著　者」など）を変えたいときにはlocale.ymlで文字列を設定する（詳細はdoc/format.ja.mdを参照）
-colophon: colophon.xhtml
+# colophon: colophon.xhtml
 # デフォルトの奥付における、各項目の記載順序
 # colophon_order: ["aut", "csl", "trl", "dsr", "ill", "cov", "edt", "pbl", "contact", "prt"]
 
 # 裏表紙データファイル (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
-backcover: backcover.xhtml
+# backcover: backcover.xhtml
 
 # プロフィールページファイル  (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)。ファイル名を指定すると著者紹介として入る
-profile: profile.xhtml
+# profile: profile.xhtml
 # プロフィールページの目次上の見出し
-profiletitle: 著者紹介
+# profiletitle: 著者紹介
 
 # 広告ファイル。ファイル名を指定すると広告として入る (PDFMaker向けにはLaTeXソース断片、EPUBMaker向けにはHTMLファイル)
 # advfile: null
@@ -259,7 +259,8 @@ imgmath_options:
   # pdfcrop_pixelize_cmd: "mv %i %o"
 
 # EPUBにおけるページ送りの送り方向、page-progression-directionの値("ltr"|"rtl"|"default")
-direction: "rtl"
+# direction: "ltr" # 横書き用
+direction: "rtl" # 縦書き用
 
 # EPUBのOPFへの固有の追加ルール
 # <package>要素に追加する名前空間
@@ -357,7 +358,7 @@ texstyle: ["reviewmacro"]
 # オプションについてはsty/README.mdを参照
 # デフォルトは印刷用。電子配布版を作るには media=ebook とする
 # texdocumentclass: ["review-jsbook", "paper=b5,serial_pagination=true,cameraready=ebook,cover=false,hiddenfolio=shippo,fontsize=10pt,line_length=40zw,number_of_lines=34,baselineskip=25.5H"]
-texdocumentclass: ["review-jlreq", "media=print,paper=b5,fontsize=10pt,serial_pagination=true,hiddenfolio=shippo,startpage=3,tate,twoside,onecolumn,openany"]
+# texdocumentclass: ["review-jlreq", "media=print,paper=b5,fontsize=10pt,serial_pagination=true,hiddenfolio=shippo,startpage=3,tate,twoside,onecolumn,openany"]
 #
 # LaTeX用のコマンドを指定する
 # texcommand: "uplatex"
@@ -370,101 +371,107 @@ texdocumentclass: ["review-jlreq", "media=print,paper=b5,fontsize=10pt,serial_pa
 #
 # LaTeX用のdvi変換コマンドのオプションを指定する。変換が遅い場合は`-d 5 -z 3`等にする
 # dvioptions: "-d 5 -z 9"
-dvioptions: "-d 5 -z 9 -r 600"
+# dvioptions: "-d 5 -z 9 -r 600"
 
-# 以下のパラメータを有効にするときには、
+# # 以下のパラメータを有効にするときには、
+# # pdfmaker:
+# #    パラメータ: 値
+# #    パラメータ: 値
+# #   ...
+# # という構成にする必要がある(インデントさせる)
+# #
 # pdfmaker:
-#    パラメータ: 値
-#    パラメータ: 値
-#   ...
-# という構成にする必要がある(インデントさせる)
-#
-pdfmaker:
-  #
-  # TeX版で利用する表紙画像。
-  # 仕上がりサイズ+塗り足し3mmありのPDFまたはIllustratorファイル（PDF互換オプション付き）を推奨。
-  # 拡縮はされず「そのまま」貼り付けられる
-  coverimage: null
-  #
-  # TeXコンパイル前に実行するプログラム。変換後のTeXソースを調整したいときに使用する。
-  # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
-  # hook_beforetexcompile: null
-  #
-  # 索引処理前に実行するプログラム。idxファイルを加工したいときなどに使用する。
-  # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
-  # hook_beforemakeindex: null
-  #
-  # 索引処理後に実行するプログラム。indファイルを加工したいときなどに使用する。
-  # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
-  # hook_aftermakeindex: null
-  #
-  # ひととおりのコンパイル後に実行するプログラム。目次を加工して再度コンパイルしたいときなどに使用する。
-  # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
-  # hook_aftertexcompile: null
-  #
-  # PDF(__REVIEW_BOOK__.pdf)作成後に実行するプログラム。PDFに加工を施したいときに使用する。
-  # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
-  # hook_afterdvipdf: null
-  #
-  # 画像のscale=X.Xという指定を画像拡大縮小率からページ最大幅の相対倍率に変換する
-  # image_scale2width: true
-  #
-  # 画像のデフォルトのサイズを、版面横幅合わせではなく、原寸をそのまま利用する
-  # use_original_image_size: null
-  #
-  # PDFやIllustratorファイル(.ai)の画像のBoudingBoxの抽出に指定のボックスを採用する
-  # cropbox(デフォルト), mediabox, artbox, trimbox, bleedboxから選択する。
-  # Illustrator CC以降のIllustratorファイルに対してはmediaboxを指定する必要がある
-  # bbox: mediabox
-  #
-  # 索引を作成するか。trueにすると索引作成が有効になる
-  # makeindex: null
-  makeindex: true
-  # 索引作成コマンド
-  # makeindex_command: mendex
-  # 索引作成コマンドのオプション
-  # makeindex_options: "-f -r -I utf8"
-  # 索引作成コマンドのスタイルファイル
-  makeindex_sty: index.ist
-  # 索引作成コマンドの辞書ファイル
-  # makeindex_dic: null
-  makeindex_dic: sakuin.dic
-  # MeCabによる索引読み探索を使うか
-  makeindex_mecab: true
-  # MeCabの読みの取得オプション
-  makeindex_mecab_opts: "-Oyomi"
-  # 奥付を作成するか。trueを指定するとデフォルトの奥付、ファイル名を指定するとそれがcolophon.htmlとしてコピーされる
-  colophon: true
-  # 表紙挿入時に表紙のページ番号名を「cover」とし、偶数ページ扱いにして大扉前に白ページが入るのを防ぐ。デフォルトはtrue
-  # use_cover_nombre: true
-  #
-  # 囲み表現の切り替え設定
-  # column, note, memo, tip, info, warning, important, caution, noticeを設定可
-  # styleはreview-tcbox.styまたは独自に作成したスタイルで定義済みの囲みスタイル名
-  # optionsはキャプションなし囲みに対するtcolorboxの追加・上書きオプション
-  # options_with_captionはキャプション付き囲みのtcolorboxの追加・上書きオプション（省略した場合はoptionsと同じ）
-  #
-  boxsetting:
-    column:
-      style: marker
-    note:
-      style: marker
-    memo:
-      style: marker
-    tip:
-      style: marker
-    info:
-      style: marker
-    warning:
-      style: marker
-    important:
-      style: marker
-    caution:
-      style: marker
-    notice:
-      style: marker
-  #     style: squarebox
-  #     options: "colback=black!5!white"
-  #     options_with_caption: "colbacktitle=black!25!white"
-  #
-  # pdfmaker:階層を使うものはここまで
+#   #
+#   # TeX版で利用する表紙画像。
+#   # 仕上がりサイズ+塗り足し3mmありのPDFまたはIllustratorファイル（PDF互換オプション付き）を推奨。
+#   # 拡縮はされず「そのまま」貼り付けられる
+#   coverimage: null
+#   #
+#   # TeXコンパイル前に実行するプログラム。変換後のTeXソースを調整したいときに使用する。
+#   # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
+#   # hook_beforetexcompile: null
+#   #
+#   # 索引処理前に実行するプログラム。idxファイルを加工したいときなどに使用する。
+#   # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
+#   # hook_beforemakeindex: null
+#   #
+#   # 索引処理後に実行するプログラム。indファイルを加工したいときなどに使用する。
+#   # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
+#   # hook_aftermakeindex: null
+#   #
+#   # ひととおりのコンパイル後に実行するプログラム。目次を加工して再度コンパイルしたいときなどに使用する。
+#   # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
+#   # hook_aftertexcompile: null
+#   #
+#   # PDF(__REVIEW_BOOK__.pdf)作成後に実行するプログラム。PDFに加工を施したいときに使用する。
+#   # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
+#   # hook_afterdvipdf: null
+#   #
+#   # 画像のscale=X.Xという指定を画像拡大縮小率からページ最大幅の相対倍率に変換する
+#   # image_scale2width: true
+#   #
+#   # 画像のデフォルトのサイズを、版面横幅合わせではなく、原寸をそのまま利用する
+#   # use_original_image_size: null
+#   #
+#   # PDFやIllustratorファイル(.ai)の画像のBoudingBoxの抽出に指定のボックスを採用する
+#   # cropbox(デフォルト), mediabox, artbox, trimbox, bleedboxから選択する。
+#   # Illustrator CC以降のIllustratorファイルに対してはmediaboxを指定する必要がある
+#   # bbox: mediabox
+#   #
+#   # 索引を作成するか。trueにすると索引作成が有効になる
+#   # makeindex: null
+#   makeindex: true
+#   # 索引作成コマンド
+#   # makeindex_command: mendex
+#   # 索引作成コマンドのオプション
+#   # makeindex_options: "-f -r -I utf8"
+#   # 索引作成コマンドのスタイルファイル
+#   makeindex_sty: index.ist
+#   # 索引作成コマンドの辞書ファイル
+#   # makeindex_dic: null
+#   makeindex_dic: sakuin.dic
+#   # MeCabによる索引読み探索を使うか
+#   makeindex_mecab: true
+#   # MeCabの読みの取得オプション
+#   makeindex_mecab_opts: "-Oyomi"
+#   # 奥付を作成するか。trueを指定するとデフォルトの奥付、ファイル名を指定するとそれがcolophon.htmlとしてコピーされる
+#   colophon: true
+#   # 表紙挿入時に表紙のページ番号名を「cover」とし、偶数ページ扱いにして大扉前に白ページが入るのを防ぐ。デフォルトはtrue
+#   # use_cover_nombre: true
+#   #
+#   # 囲み表現の切り替え設定
+#   # column, note, memo, tip, info, warning, important, caution, noticeを設定可
+#   # styleはreview-tcbox.styまたは独自に作成したスタイルで定義済みの囲みスタイル名
+#   # optionsはキャプションなし囲みに対するtcolorboxの追加・上書きオプション
+#   # options_with_captionはキャプション付き囲みのtcolorboxの追加・上書きオプション（省略した場合はoptionsと同じ）
+#   #
+#   boxsetting:
+#     column:
+#       style: marker
+#     note:
+#       style: marker
+#     memo:
+#       style: marker
+#     tip:
+#       style: marker
+#     info:
+#       style: marker
+#     warning:
+#       style: marker
+#     important:
+#       style: marker
+#     caution:
+#       style: marker
+#     notice:
+#       style: marker
+#   #     style: squarebox
+#   #     options: "colback=black!5!white"
+#   #     options_with_caption: "colbacktitle=black!25!white"
+#   #
+#   # pdfmaker:階層を使うものはここまで
+
+playwright_options:
+  playwright_path: "./node_modules/.bin/playwright"
+  selfcrop: true
+  pdfcrop_path: "pdfcrop"
+  pdftocairo_path: "pdftocairo"

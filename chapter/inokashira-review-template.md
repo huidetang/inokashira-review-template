@@ -6,9 +6,13 @@
 
 ビルドに[Vivliostyle](https://vivliostyle.org/ja/)を使用します。
 
+旧LaTeX版の設定も併記しています。
+
 図は[Mermaid](https://mermaid.js.org/)が使えます。
 
-もちろん、PNG形式などの画像ファイルにも対応しています。なお、印刷用PDFではカラー画像はモノクロ画像に変換されます。これらの画像ファイルは `images` フォルダーに配置してください。
+もちろん、PNG形式などの画像ファイルにも対応しています。これらの画像ファイルは `images` フォルダーに配置してください。
+
+なお、印刷用PDFではカラー画像はモノクロ画像に変換されます。
 
 本文はRe:VIEW記法の他に、MarkdownとMicrosoft Wordに対応しています。しかし、Microsoft Word文書では書式が全て無視される上、縦中横が効かないなどいろいろな制約がありますのでご注意ください。これらの本文ファイルは `chapter` フォルダーに配置し、 `catalog.yml` ファイルに記載してください。なお、記載する際にMarkdownとMicrosoft Word文書の拡張子は `.re` に変更する必要があります。
 

@@ -207,6 +207,10 @@ html {
 .colophon {
   page: colophon;
 
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
+  writing-mode: horizontal-tb;
+
   &.page-break {
     margin-right: 0;
   }
@@ -236,10 +240,6 @@ html {
     p {
       text-indent: 0;
       hanging-punctuation: none;
-
-      &.title {
-        font-size: 1.6rem;
-      }
   
       &.subtitle {
         font-size: 1.3rem;
@@ -258,6 +258,10 @@ html {
 /* 著者紹介 */
 .profile {
   page: profile;
+
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
+  writing-mode: horizontal-tb;
 }
 
 @page profile {
@@ -277,18 +281,42 @@ html {
     -webkit-writing-mode: horizontal-tb;
     -epub-writing-mode:   horizontal-tb;
     writing-mode: horizontal-tb;
+    font-size: 7pt;
 
     img {
       width: 120px;
       height: 120px;
       float: left;
     }
-
-    .clearfix {
-      display: block;
-      clear: both;
-   }
-
+    figure {
+      float-reference: page;
+      float: right;
+      width: 100%;
+      max-width: $content-width;
+      max-height: $content-height;
+      box-sizing: border-box;
+      writing-mode: horizontal-tb;
+    
+      & > img {
+        display: block;
+        width: 120px;
+        height: 120px;
+        box-sizing: border-box;
+      }
+    
+      figcaption {
+        text-align: center;
+        font-size: 7pt;
+        line-height: 14pt;
+        margin-bottom: 4pt;
+      }
+    
+      &::after {
+        content:'';
+        display: block; 
+        clear:both;
+      }
+    }
   }
 
   @top-left {

@@ -58,3 +58,37 @@
     font-family: 'Yakumono';
     src: url(./fonts/YakuCalt/YakuCaltMincho-R.woff) format("woff");
 }
+
+/* 等幅フォント・絵文字用（Cicaフォント） https://github.com/miiton/Cica */
+
+@font-face {
+    font-family: 'Cica';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: url(./fonts/Cica/Cica-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Cica';
+    font-style: Italic;
+    font-display: swap;
+    font-weight: 700;
+    src: url(./fonts/Cica/Cica-BoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Cica';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(./fonts/Cica/Cica-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Cica';
+    font-style: Italic;
+    font-display: swap;
+    font-weight: 400;
+    src: url(./fonts/Cica/Cica-RegularItalic.ttf) format('truetype');
+}

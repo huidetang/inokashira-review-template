@@ -24,6 +24,12 @@ figure {
     line-height: 14pt;
     margin-bottom: 4pt;
   }
+
+  &::after {
+    content:'';
+    display: block; 
+    clear:both;
+  }
 }
 
 /* リンク */

@@ -1,6 +1,6 @@
 # Markdown文書の変換仕様
 
-参考: https://github.com/kmuto/pandoc2review/blob/main/markdown-format.ja.md
+参考: [https://github.com/kmuto/pandoc2review/blob/main/markdown-format.ja.md](https://github.com/kmuto/pandoc2review/blob/main/markdown-format.ja.md)
 
 ## 基本
 
@@ -33,7 +33,7 @@ Re:VIEW の `//blankline` を入れるには、`\` を行末とその次の行�
 
 ## コードブロック
 
-`~`なら行ける。
+`~`３つで表記する。
 
 詳しくは https://github.com/kmuto/pandoc2review/blob/main/markdown-format.ja.md 参照。
 
@@ -157,3 +157,9 @@ HTML の生タグであるブロック `<div>`、インライン `<span>` の属
 使えるらしい。
 
 DivタグとSpanタグ以外は生のHTMLとして使える。
+
+## 絵文字
+
+Cicaフォントに入っているものなら使える……はず。
+
+🍣
