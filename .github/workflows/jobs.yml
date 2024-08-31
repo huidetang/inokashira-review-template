@@ -123,8 +123,8 @@ jobs:
         run: bundle install
       - name: MermaidのPNG化
         run: ./mmdtopng.sh images
-      - name: Playwrightのセットアップ
-        run: 
+      # - name: Playwrightのセットアップ
+      #   run: 
       - name: Pythonのセットアップ
         uses: actions/setup-python@v5
         with:
