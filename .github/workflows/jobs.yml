@@ -121,8 +121,6 @@ jobs:
         run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}
       - name: Rubyのパッケージをインストール
         run: bundle install
-      - name: MermaidのPNG化
-        run: ./mmdtopng.sh images
       - name: Pythonのセットアップ
         uses: actions/setup-python@v5
         with:
@@ -134,6 +132,8 @@ jobs:
           pwd | python grayscaling.py >> .grayscaling.log
       - name: 画像白黒化のログ確認
         run: cat .grayscaling.log
+      - name: MermaidのPNG化
+        run: ./mmdtopng.sh images
       - name: PDFの生成
         run: REVIEW_CONFIG_FILE=config-print.yml REVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true bundle exec rake vivliostyle
       - name: 成果物のアップロード
@@ -166,8 +166,6 @@ jobs:
   #       run: pnpm run style:${{ env.SIZE }}-${{ env.MUKI }}-no-bleed
   #     - name: Rubyのパッケージをインストール
   #       run: bundle install
-  #     - name: MermaidのPNG化
-  #       run: ./mmdtopng.sh images
   #     - name: Pythonのセットアップ
   #       uses: actions/setup-python@v5
   #       with:
@@ -179,6 +177,8 @@ jobs:
   #         pwd | python grayscaling.py >> .grayscaling.log
   #     - name: 画像白黒化のログ確認
   #       run: cat .grayscaling.log
+  #     - name: MermaidのPNG化
+  #       run: ./mmdtopng.sh images
   #     - name: PDFの生成
   #       run: REVIEW_CONFIG_FILE=config-print.yml EVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true bundle exec rake vivliostyle
   #     - name: 成果物のアップロード
