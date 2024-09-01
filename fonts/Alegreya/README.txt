@@ -1,28 +1,30 @@
-EB Garamond Variable Font
-=========================
+Alegreya Variable Font
+======================
 
-This download contains EB Garamond as both variable fonts and static fonts.
+This download contains Alegreya as both variable fonts and static fonts.
 
-EB Garamond is a variable font with this axis:
+Alegreya is a variable font with this axis:
   wght
 
 This means all the styles are contained in these files:
-  EBGaramond-VariableFont_wght.ttf
-  EBGaramond-Italic-VariableFont_wght.ttf
+  Alegreya-VariableFont_wght.ttf
+  Alegreya-Italic-VariableFont_wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for EB Garamond:
-  static/EBGaramond-Regular.ttf
-  static/EBGaramond-Medium.ttf
-  static/EBGaramond-SemiBold.ttf
-  static/EBGaramond-Bold.ttf
-  static/EBGaramond-ExtraBold.ttf
-  static/EBGaramond-Italic.ttf
-  static/EBGaramond-MediumItalic.ttf
-  static/EBGaramond-SemiBoldItalic.ttf
-  static/EBGaramond-BoldItalic.ttf
-  static/EBGaramond-ExtraBoldItalic.ttf
+in those cases you can use the static font files for Alegreya:
+  static/Alegreya-Regular.ttf
+  static/Alegreya-Medium.ttf
+  static/Alegreya-SemiBold.ttf
+  static/Alegreya-Bold.ttf
+  static/Alegreya-ExtraBold.ttf
+  static/Alegreya-Black.ttf
+  static/Alegreya-Italic.ttf
+  static/Alegreya-MediumItalic.ttf
+  static/Alegreya-SemiBoldItalic.ttf
+  static/Alegreya-BoldItalic.ttf
+  static/Alegreya-ExtraBoldItalic.ttf
+  static/Alegreya-BlackItalic.ttf
 
 Get started
 -----------

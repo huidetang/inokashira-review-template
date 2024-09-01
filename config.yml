@@ -260,8 +260,8 @@ imgmath_options:
   # pdfcrop_pixelize_cmd: "mv %i %o"
 
 # EPUBにおけるページ送りの送り方向、page-progression-directionの値("ltr"|"rtl"|"default")
-# direction: "ltr" # 横書き用
-direction: "rtl" # 縦書き用
+direction: "ltr" # 横書き用
+# direction: "rtl" # 縦書き用
 
 # EPUBのOPFへの固有の追加ルール
 # <package>要素に追加する名前空間

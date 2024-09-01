@@ -110,9 +110,9 @@ dl {
   width: 100%;
   
   dt {
-    width: auto;
+    width: 40%;
     font-weight: 700;
-    text-align:justify;
+    text-align: right;
     &::after {
       content: ": ";
     }
@@ -120,11 +120,8 @@ dl {
     
   dd {
     text-indent: 1rem;
-    width: auto;
+    width: 60%;
     text-align: left;
-    &::after {
-      width: 100%
-    }
   }
 }
 
