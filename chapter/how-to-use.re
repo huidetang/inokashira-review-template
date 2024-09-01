@@ -81,6 +81,9 @@ graph TD
  * GIFファイル
  * JPEGファイル
 
+//image[sign][PNG画像]{
+//}
+
 SVGファイルは対応していません。
 
 図表はMermaidで作成した図を入れることができます。ただし、Mermaidの図は @<code>{//graph} 命令ではなく、 @<code>{//image} 命令を使って画像として取り込んでください。内部ではPNG画像に変換しています。Mermaid形式の図表の拡張子は @<code>{.mermaid} を使用してください。
