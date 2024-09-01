@@ -12,26 +12,19 @@
 
 noteでは、以下のプランを開設しています。
 
-//image[note][noteの支援プラン]{
-    Amazonのほしいものリスト（書籍以外も含む）
-//}
+@<href>{https://note.com/louisa_charlotte/membership}
 
 === Amazonのほしいものリスト
 
 Amazonでは、以下のほしいものリストからプレゼントを贈ることが可能です。
 
-//image[amazon-goods][Amazonのほしいものリスト（書籍以外も含む）]{
-    Amazonのほしいものリスト（書籍以外も含む）
-//}
-
-//image[amazon-books][Amazonのほしいものリスト（書籍）]{
-    Amazonのほしいものリスト（書籍以外）
-//}
+ : 書籍
+    @<href>{https://www.amazon.jp/hz/wishlist/ls/QH9G256RU2HN?ref_=wl_share}
+ : 書籍以外
+    @<href>{https://www.amazon.jp/hz/wishlist/ls/34F3UNKGH92UY?ref_=wl_share}
 
 === BOOTH
 
 BOOTHのほしいものリストでも、BOOTHでのほしいものを贈ることができます。
 
-//image[booth][BOOTHのほしいものリスト]{
-    BOOTHのほしいものリスト
-//}
+@<href>{https://booth.pm/wish_list_names/8MBTGjgp}

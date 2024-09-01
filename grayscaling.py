@@ -35,7 +35,6 @@ def bundle_grayscaling(dir: str):
         path_list.extend(glob.glob(join(dir, ext)))
 
     for i in path_list:
-        print(i)
         try:
             img = grayscaling(i)
             img.save(i)
@@ -44,7 +43,7 @@ def bundle_grayscaling(dir: str):
             print(i)
         finally:
             print("ファイル処理が完了しました。")
-        print(i)
+            print(i)
     return
 
 
