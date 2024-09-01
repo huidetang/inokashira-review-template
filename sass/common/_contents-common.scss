@@ -50,8 +50,6 @@ pre {
   width: $content-width * 0.9;
   margin: 0 auto;
   padding: 1rem;
-  break-before: page;
-  break-after: page;
   box-decoration-break: clone;
   float: top;
 
@@ -124,6 +122,9 @@ dl {
     text-indent: 1rem;
     width: auto;
     text-align: left;
+    &::after {
+      width: 100%
+    }
   }
 }
 
