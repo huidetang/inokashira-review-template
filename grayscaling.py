@@ -36,8 +36,14 @@ def bundle_grayscaling(dir: str):
 
     for i in path_list:
         print(i)
-        img = grayscaling(i)
-        img.save(i)
+        try:
+            img = grayscaling(i)
+            img.save(i)
+        except IndexError:
+            print("以下のファイルを処理するときにエラーが発生しました。")
+            print(i)
+        finally:
+            print("ファイル処理が完了しました。")
         print(i)
     return
 
