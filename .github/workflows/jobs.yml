@@ -217,7 +217,7 @@ jobs:
       - name: 成果物のアップロード
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ format('inokashira-template_{0}_{1}_{2}', 'print-pdf', env.MUKI, steps.date.outputs.date) }}
+          name: ${{ format('inokashira-template_{0}_{1}_{2}', 'ebook-pdf', env.MUKI, steps.date.outputs.date) }}
           path: book.pdf
 
   # paper:

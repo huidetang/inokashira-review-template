@@ -4,7 +4,7 @@ inherit: ["config.yml"]
 
 # 表紙を作る
 cover: cover.xhtml
-coverimage: cover.png
+coverimage: frontcover.png
 epubmaker:
   cover_linear: yes
 
