@@ -207,10 +207,6 @@ html {
 .colophon {
   page: colophon;
 
-  -webkit-writing-mode: horizontal-tb;
-  -epub-writing-mode: horizontal-tb;
-  writing-mode: horizontal-tb;
-
   &.page-break {
     margin-right: 0;
   }
@@ -230,9 +226,6 @@ html {
   div.colophon-content {
     max-width: 100%;
     max-height: 100vh;
-    -webkit-writing-mode: horizontal-tb;
-    -epub-writing-mode: horizontal-tb;
-    writing-mode: horizontal-tb;
     font-size: 7pt;
 
     margin-block-start: $content-height * 0.6;
@@ -262,10 +255,6 @@ html {
 /* 著者紹介 */
 .profile {
   page: profile;
-
-  -webkit-writing-mode: horizontal-tb;
-  -epub-writing-mode: horizontal-tb;
-  writing-mode: horizontal-tb;
 }
 
 @page profile {
@@ -282,9 +271,6 @@ html {
   div.profile-content{
     max-width: 100%;
     max-height: 100vh;
-    -webkit-writing-mode: horizontal-tb;
-    -epub-writing-mode:   horizontal-tb;
-    writing-mode: horizontal-tb;
     font-size: 7pt;
 
     h2 {

@@ -138,10 +138,11 @@ end
 
 desc 'build with vivliostyle'
 task 'vivliostyle:build': BOOK_EPUB do
-  sh "#{REVIEW_VSCLI} build #{REVIEW_VSCLI_USESANDBOX} #{REVIEW_VSCLI_OPTIONS} --preflight press-ready-local #{REVIEW_VSCLI_GRAYSCALE} -o #{REVIEW_VSCLI_PDF} #{BOOK_EPUB} --log-level debug"
+  sh "#{REVIEW_VSCLI} build #{REVIEW_VSCLI_USESANDBOX} #{REVIEW_VSCLI_OPTIONS} --preflight press-ready-local #{REVIEW_VSCLI_GRAYSCALE} -o #{REVIEW_VSCLI_PDF} #{BOOK_EPUB}"
 end
 
 desc 'build with vivliostyle'
 task vivliostyle: 'vivliostyle:build'
 
-CLEAN.include([BOOK, BOOK_PDF, BOOK_EPUB, BOOK + '-pdf', BOOK + '-epub', WEBROOT, 'images/_review_math', 'images/_review_math_text', TEXTROOT, IDGXMLROOT])
+CLEAN.include([BOOK, BOOK_PDF, BOOK_EPUB, BOOK + '-pdf', BOOK + '-epub', WEBROOT, 'images/_review_math',
+               'images/_review_math_text', TEXTROOT, IDGXMLROOT])
