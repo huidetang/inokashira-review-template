@@ -30,17 +30,26 @@ $ pnpm run style:a6-tate-no-bleed
 # popplerのインストール
 $ apt install poppler-utils
 
+# Playwrightのインストール
+$ ./node_modules/.bin/playwright install --with-deps
+
 # Rubyのパッケージをインストール
 $ bundle install
 
+# Pythonのパッケージをインストール
+$ python -m pip install anshitsu
+
+# 画像の白黒化
+$ python grayscaling.py >> .grayscaling.log
+
 # EPUBの生成
-$ REVIEW_CONFIG_FILE=config-ebook.yml bundle exec rake epub
+$ REVIEW_CONFIG_FILE=config-epub-tate.yml bundle exec rake epub
 
 # VivliostyleによるPDFの生成
-$ REVIEW_CONFIG_FILE=config-ebook.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+$ REVIEW_CONFIG_FILE=config-ebook-tate.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
 //}
 
-なお、できる限りGitHubか、Dockerコンテナ上のLinuxで
+なお、できる限りGitHubか、Dockerコンテナ上のLinuxで行うことを推奨いたします。
 
 == このテンプレートの仕組み
 
