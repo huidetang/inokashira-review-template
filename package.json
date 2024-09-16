@@ -50,5 +50,6 @@
     "textlint-rule-prh": "^5.3.0"
   },
   "dependencies": {
+    "playwright": "^1.47.1"
   }
 }

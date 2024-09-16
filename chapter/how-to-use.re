@@ -47,6 +47,7 @@ $ REVIEW_CONFIG_FILE=config-ebook.yml REVIEW_VSCLI_USESANDBOX=true bundle exec r
 このテンプレートは以下の仕組みでPDFを生成します。
 
 //graph[shikumi][mermaid][このテンプレートの仕組み]{
+%%{init:{'theme':'neutral'}}%%
 graph TD
    docx[Microsoft Wordファイル] --> pandoc[Pandoc]
    md[Markdownファイル] --> pandoc
@@ -86,7 +87,7 @@ graph TD
 
 SVGファイルは対応していません。
 
-図表はMermaidで作成した図を入れることができます。ただし、Mermaidの図は @<code>{//graph} 命令ではなく、 @<code>{//image} 命令を使って画像として取り込んでください。内部ではPNG画像に変換しています。Mermaid形式の図表の拡張子は @<code>{.mermaid} を使用してください。
+図表はMermaidで作成した図を入れることができます。Mermaidの図は @<code>{//graph} 命令で取り込むことができます。
 
 印刷用PDFでは全て白黒化されます。
 
