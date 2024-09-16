@@ -135,7 +135,7 @@ jobs:
       - name: Playwrightのインストール
         run: ./node_modules/.bin/playwright install --with-deps
       - name: PDFの生成
-        run: REVIEW_CONFIG_FILE=config-print-${{ env.MUKI }}.yml REVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true REVIEW_VSCLI_OPTIONS="--timeout 900" bundle exec rake vivliostyle
+        run: REVIEW_CONFIG_FILE=config-print-${{ env.MUKI }}.yml REVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true bundle exec rake vivliostyle
       - name: 成果物のアップロード
         uses: actions/upload-artifact@v4
         with:
@@ -180,7 +180,7 @@ jobs:
       - name: Playwrightのインストール
         run: ./node_modules/.bin/playwright install --with-deps
       - name: PDFの生成
-        run: REVIEW_CONFIG_FILE=config-print-${{ env.MUKI }}.yml EVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true REVIEW_VSCLI_OPTIONS="--timeout 900" bundle exec rake vivliostyle
+        run: REVIEW_CONFIG_FILE=config-print-${{ env.MUKI }}.yml EVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true bundle exec rake vivliostyle
       - name: 成果物のアップロード
         uses: actions/upload-artifact@v4
         with:
