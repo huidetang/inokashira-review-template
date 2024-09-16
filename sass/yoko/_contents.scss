@@ -3,7 +3,7 @@
 @import '../common/contents-common';
 
 /* 画像＋キャプション */
-figure {
+div.image {
   float-reference: page;
   float: right;
   width: 100%;
@@ -18,11 +18,14 @@ figure {
     box-sizing: border-box;
   }
 
-  figcaption {
+  & > p.caption {
     text-align: center;
     font-size: 7pt;
     line-height: 14pt;
     margin-bottom: 4pt;
+    & > a {
+
+    }
   }
 
   &::after {

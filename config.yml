@@ -22,8 +22,8 @@ language: ja
 
 # 書名
 # 読みを入れる例 booktitle: {name: "Re:VIEW EPUBサンプル", file-as: "リビューイーパブサンプル"}
-booktitle: "井の頭文芸部　本文テンプレート"
-subtitle: "縦書き用"
+booktitle: "井の頭文芸部Re:VIEWテンプレート"
+subtitle: "縦書き・横書き両用"
 
 # 著者名。「, 」で区切って複数指定できる
 # 読みを入れる例 aut: [{name: "青木峰郎", file-as: "アオキミネロウ"}, {name: "武藤健志", file-as: "ムトウケンシ"}, {name: "高橋征義", file-as: "タカハシマサヨシ"}, {name: "角征典", file-as: "カドマサノリ"}]
@@ -349,7 +349,7 @@ epubmaker:
   # 脚注に「戻る」リンクを追加する(trueで追加)。脚注の記号および戻るリンクの記号はlocale.ymlで変更可能
   # back_footnote: null
   # 見出しに応じて<section>で囲むようにする(trueで<section>を利用)
-  # use_section: null
+  use_section: true
   # epubmaker:階層を使うものはここまで
 
 # LaTeX用のスタイルファイル(styディレクトリ以下に置くこと)
@@ -471,8 +471,8 @@ texstyle: ["reviewmacro"]
 #   #
 #   # pdfmaker:階層を使うものはここまで
 
-# playwright_options:
-#   playwright_path: "./node_modules/.bin/playwright"
-#   selfcrop: true
-#   pdfcrop_path: "pdfcrop"
-#   pdftocairo_path: "pdftocairo"
+playwright_options:
+  playwright_path: "./node_modules/.bin/playwright"
+  selfcrop: true
+  pdfcrop_path: "pdfcrop"
+  pdftocairo_path: "pdftocairo"

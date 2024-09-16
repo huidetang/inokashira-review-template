@@ -43,7 +43,7 @@ $content-width: $paper-width - $koguchi - $nodo;
 $content-height: $paper-height - $ten - $chi;
 
 // ページのスタイル定義
-@import 'common/format';
+@import 'yoko/format';
 // タイポグラフィのスタイル定義
 @import 'yoko/typography';
 // コンテンツのスタイル定義

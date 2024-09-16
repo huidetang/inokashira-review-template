@@ -50,7 +50,7 @@ $content-height: $paper-height - $ten - $chi;
 }
 
 // ページのスタイル定義
-@import 'common/format';
+@import 'tate/format';
 // タイポグラフィのスタイル定義
 @import 'tate/typography';
 // コンテンツのスタイル定義

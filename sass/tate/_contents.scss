@@ -3,14 +3,16 @@
 @import '../common/contents-common';
 
 /* 画像＋キャプション */
-figure {
-  float-reference: page;
-  float: top;
+div.image {
   width: 100%;
+  display: flex;
+  flex-flow: column;
   max-width: $content-width;
   max-height: $content-height;
   box-sizing: border-box;
   writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
 
   & > img {
     display: block;
@@ -18,17 +20,21 @@ figure {
     box-sizing: border-box;
   }
 
-  figcaption {
+  & > p.caption {
     text-align: center;
     font-size: 7pt;
     line-height: 14pt;
     margin-bottom: 4pt;
-  }
+    writing-mode: horizontal-tb;
+    -webkit-writing-mode: horizontal-tb;
+    -epub-writing-mode: horizontal-tb;
 
-  &::after {
-    content:'';
-    display: block; 
-    clear:both;
+    & > a {
+      border-right: none;
+      padding-right: 0;
+      border-bottom: 1px dashed;
+      padding-bottom: 3px;
+    }
   }
 }
 
