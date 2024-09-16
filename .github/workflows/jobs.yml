@@ -88,7 +88,7 @@ jobs:
       - name: Rubyのパッケージをインストール
         run: bundle install
       - name: Playwrightのインストール
-        run: pnpm run playwright install
+        run: pnpm run playwright install --with-deps
       - name: EPUBの生成
         run: REVIEW_CONFIG_FILE=config-epub-${{ env.MUKI }}.yml bundle exec rake epub
       - name: 成果物のアップロード
@@ -133,7 +133,7 @@ jobs:
       - name: 画像白黒化のログ確認
         run: cat .grayscaling.log
       - name: Playwrightのインストール
-        run: pnpm run playwright install
+        run: pnpm run playwright install --with-deps
       - name: PDFの生成
         run: REVIEW_CONFIG_FILE=config-print-tate.yml REVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true REVIEW_VSCLI_OPTIONS="--timeout 900" bundle exec rake vivliostyle
       - name: 成果物のアップロード
@@ -178,7 +178,7 @@ jobs:
       - name: 画像白黒化のログ確認
         run: cat .grayscaling.log
       - name: Playwrightのインストール
-        run: pnpm run playwright install
+        run: pnpm run playwright install --with-deps
       - name: PDFの生成
         run: REVIEW_CONFIG_FILE=config-print-yoko.yml REVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true REVIEW_VSCLI_OPTIONS="--timeout 900" bundle exec rake vivliostyle
       - name: 成果物のアップロード
@@ -223,7 +223,7 @@ jobs:
       - name: 画像白黒化のログ確認
         run: cat .grayscaling.log
       - name: Playwrightのインストール
-        run: pnpm run playwright install
+        run: pnpm run playwright install --with-deps
       - name: PDFの生成
         run: REVIEW_CONFIG_FILE=config-print-${{ env.MUKI }}.yml EVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_GRAYSCALE=true REVIEW_VSCLI_OPTIONS="--timeout 900" bundle exec rake vivliostyle
       - name: 成果物のアップロード
@@ -256,7 +256,7 @@ jobs:
       - name: Rubyのパッケージをインストール
         run: bundle install
       - name: Playwrightのインストール
-        run: pnpm run playwright install
+        run: pnpm run playwright install --with-deps
       - name: PDFの生成
         run: REVIEW_CONFIG_FILE=config-ebook-${{ env.MUKI }}.yml REVIEW_VSCLI_USESANDBOX=true REVIEW_VSCLI_OPTIONS="--timeout 900" bundle exec rake vivliostyle
       - name: 成果物のアップロード
