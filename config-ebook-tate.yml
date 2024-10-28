@@ -5,6 +5,9 @@ inherit: ["config.yml"]
 # 表紙を作る
 cover: cover.xhtml
 
+# 縦書き
+direction: "rtl"
+
 # 裏表紙を作る
 backcover: backcover.xhtml
 

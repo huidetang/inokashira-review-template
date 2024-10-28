@@ -8,6 +8,9 @@ coverimage: frontcover.png
 epubmaker:
   cover_linear: yes
 
+# 縦書き
+direction: "rtl"
+
 # 裏表紙を作る
 backcover: backcover.xhtml
 
@@ -21,3 +24,5 @@ colophon: colophon.xhtml
 # 著者紹介は自作したXMTMLファイルを使う
 profile: profile.xhtml
 profiletitle: 著者紹介
+
+debug: true

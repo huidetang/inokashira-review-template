@@ -5,8 +5,7 @@ inherit: ["config.yml"]
 # 横書き
 direction: "ltr"
 
-# 印刷所の名前を設定する
-prt: ○○印刷所
+# 印刷所の名前は設定しない
 
 # 表紙と裏表紙は作らない
 cover: false

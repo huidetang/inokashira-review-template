@@ -42,24 +42,37 @@ p > img, div > img, section > img {
 }
 
 /* コードブロック */
-pre {
+div.caption-code, div.cmd-code {
   writing-mode: horizontal-tb;
   -webkit-writing-mode: horizontal-tb;
   -epub-writing-mode: horizontal-tb;
-  font-size: 6.5px;
-  width: $content-width * 0.9;
-  margin: 0 auto;
-  padding: 1rem;
-  box-decoration-break: clone;
+  display: flex;
+  flex-flow: column-reverse wrap;
+  margin: 1rem;
 
-  code {
-    border: 1px #aaa solid;
-    border-radius: 4px;
+  pre {
+    font-size: 6.5px;
+    max-width: $content-width;
+    box-decoration-break: clone;
+    break-before: always;
+    break-after: always;
     overflow-wrap: anywhere;
     font-family: "Cica";
-    max-width: 100%;
+    writing-mode: horizontal-tb;
+    -webkit-writing-mode: horizontal-tb;
+    -epub-writing-mode: horizontal-tb;
+  }
+  p.caption {
+    text-align: center;
+    font-size: 7pt;
+    line-height: 14pt;
+    margin-bottom: 4pt;
+    writing-mode: horizontal-tb;
+    -webkit-writing-mode: horizontal-tb;
+    -epub-writing-mode: horizontal-tb;
   }
 }
+
 
 /* 囲い記事 */
 div.note, div.memo, div.tip, div.info, div.warning, div.important, div.caution, div.notice {

@@ -46,7 +46,8 @@ $ python grayscaling.py >> .grayscaling.log
 $ REVIEW_CONFIG_FILE=config-epub-tate.yml bundle exec rake epub
 
 # VivliostyleによるPDFの生成
-$ REVIEW_CONFIG_FILE=config-ebook-tate.yml REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
+$ REVIEW_CONFIG_FILE=config-ebook-tate.yml \
+  REVIEW_VSCLI_USESANDBOX=true bundle exec rake vivliostyle
 //}
 
 なお、できる限りGitHubか、Dockerコンテナ上のLinuxで行うことを推奨いたします。
