@@ -18,6 +18,8 @@ div.image {
     display: block;
     width: 100%;
     box-sizing: border-box;
+    max-width: $content-width;
+    max-height: $content-height;
   }
 
   & > p.caption {
