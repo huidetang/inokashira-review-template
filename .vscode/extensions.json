@@ -1,13 +1,12 @@
 {
     "recommendations": [
         "atsushieno.language-review",
-        "taichi.vscode-textlint",
+        "3w36zj6.textlint",
         "8amjp.charactercount",
         "mhutchie.git-graph",
         "donjayamanne.githistory",
         "felipecaputo.git-project-manager",
         "github.vscode-pull-request-github",
-        "eamodio.gitlens",
         "ms-ceintl.vscode-language-pack-ja",
         "yzhang.markdown-all-in-one",
         "bierner.markdown-mermaid",
