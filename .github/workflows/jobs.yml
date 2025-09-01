@@ -259,55 +259,55 @@ jobs:
           name: ${{ format('{0}_{1}_{2}_{3}', env.FILE_PREFIX, 'udonbook-png', env.MUKI, steps.date.outputs.date) }}
           path: ./distimages/*.png
 
-  paper:
-    # 校正ツールによるチェックが通らないとダメにするにはチェックを外す
-    # needs: reviewdog-github-check
-    name: 旧LaTeX版PDF
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/huideyeren/review-docker:latest
-    steps:
-      - name: リポジトリのチェックアウト
-        uses: actions/checkout@v4
-      - name: 現在時刻の取得
-        env: 
-          TZ: "Asia/Tokyo" # タイムゾーンを指定
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
-              # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
-      - name: 現在時刻を確認
-        run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
-      - name: Rubyのパッケージをインストール
-        run: bundle install
-      - name: Node.jsのパッケージをインストール
-        run: npm install
-      - name: Playwrightのインストール
-        run: ./node_modules/.bin/playwright install
-      - name: pdfcropコマンドを使えるようにする
-        run: apt install texlive-extra-utils
-      - name: PlantUMLのコピー
-        run: cp /java/plantuml.jar .
-      - name: ツールのチェック
-        run: dot -V && blockdiag --version && java -jar plantuml.jar -version
-      - name: PlantUMLを図に変換する
-        run: pwd | bash ./plantuml.sh >> .plantuml.log
-      - name: PlantUMLの変換ログを確認する
-        run: cat .plantuml.log
-      - name: SVGをPDFに変換する
-        run: pwd | python3 svg.py >> .svg.log
-      - name: SVGをPDFに変換したときのログを確認する
-        run: cat .svg.log
-      - name: MermaidのPNG化
-        run: ./mmdtopng.sh images/*.mermaid
-      - name: 画像の白黒化
-        run: pwd | python3 grayscaling.py >> .grayscaling.log
-      - name: 画像白黒化のログ確認
-        run: cat .grayscaling.log
-      - name: PDFの生成
-        run: REVIEW_CONFIG_FILE=config-print-pdf.yml bundle exec rake pdf
-      - name: 成果物のアップロード
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ format('{0}_{1}_{2}_{3}', env.FILE_PREFIX, 'latex-pdf', env.MUKI, steps.date.outputs.date) }}
-          path: book.pdf
+  # paper:
+  #   # 校正ツールによるチェックが通らないとダメにするにはチェックを外す
+  #   # needs: reviewdog-github-check
+  #   name: 旧LaTeX版PDF
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: ghcr.io/huideyeren/review-docker:latest
+  #   steps:
+  #     - name: リポジトリのチェックアウト
+  #       uses: actions/checkout@v4
+  #     - name: 現在時刻の取得
+  #       env: 
+  #         TZ: "Asia/Tokyo" # タイムゾーンを指定
+  #       id: date
+  #       run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H%M')"
+  #             # '%Y-%m-%d %H:%M'の部分を書き換えれば、任意の表示に変更できる。
+  #     - name: 現在時刻を確認
+  #       run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
+  #     - name: Rubyのパッケージをインストール
+  #       run: bundle install
+  #     - name: Node.jsのパッケージをインストール
+  #       run: npm install
+  #     - name: Playwrightのインストール
+  #       run: ./node_modules/.bin/playwright install
+  #     - name: pdfcropコマンドを使えるようにする
+  #       run: apt install texlive-extra-utils
+  #     - name: PlantUMLのコピー
+  #       run: cp /java/plantuml.jar .
+  #     - name: ツールのチェック
+  #       run: dot -V && blockdiag --version && java -jar plantuml.jar -version
+  #     - name: PlantUMLを図に変換する
+  #       run: pwd | bash ./plantuml.sh >> .plantuml.log
+  #     - name: PlantUMLの変換ログを確認する
+  #       run: cat .plantuml.log
+  #     - name: SVGをPDFに変換する
+  #       run: pwd | python3 svg.py >> .svg.log
+  #     - name: SVGをPDFに変換したときのログを確認する
+  #       run: cat .svg.log
+  #     - name: MermaidのPNG化
+  #       run: ./mmdtopng.sh images/*.mermaid
+  #     - name: 画像の白黒化
+  #       run: pwd | python3 grayscaling.py >> .grayscaling.log
+  #     - name: 画像白黒化のログ確認
+  #       run: cat .grayscaling.log
+  #     - name: PDFの生成
+  #       run: REVIEW_CONFIG_FILE=config-print-pdf.yml bundle exec rake pdf
+  #     - name: 成果物のアップロード
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: ${{ format('{0}_{1}_{2}_{3}', env.FILE_PREFIX, 'latex-pdf', env.MUKI, steps.date.outputs.date) }}
+  #         path: book.pdf
 
